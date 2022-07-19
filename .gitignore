@@ -1,3 +1,9 @@
+.history/
+..DS_Store
+.vscode
+.quokka
+.gitignore
+
 # Logs
 logs
 *.log
