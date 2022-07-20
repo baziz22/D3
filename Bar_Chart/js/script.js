@@ -58,4 +58,25 @@ let scaley = d3.scaleLinear()
         .attr("fill", "black")
         .attr("transform", "rotate(-90)");
 
+        g.selectAll(".bar")
+            .data(d)
+            .enter()
+            .append("rect")
+            .classed("bar", true)
+            .attr("x", (d) => scalex(d.year))
+            .attr("y", svg_height - 120)
+            .attr("width", scalex.bandwidth())
+            .transition()
+            .ease(d3.easeBounce)
+            .duration(1500)
+            .delay(function (d, i) {
+                return i * 100;
+            })
+            .attr("y", (d) => scaley(d.value))
+            .attr("height", (d) => svg_height - scaley(d.value) - 120)
+            .attr("fill", data => { 
+                return (data.value === d3.max(d,  data => data.value)) 
+                ? "orange" : barColor})
+           ;
+
     });
