@@ -80,3 +80,10 @@ let scaley = d3.scaleLinear()
            ;
 
     });
+    // Add Label to the Chart
+    g.append("text")
+    .attr("transform", "translate(100,0)")
+    .attr("x", "10")
+    .attr("y", "10")
+    .text("The Title")
+    .style("font-size", "24")
